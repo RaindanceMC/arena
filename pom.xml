@@ -21,7 +21,7 @@
     <!-- This repository's own versions: bump them here. CI publishes a new version on the next push to master. -->
     <properties>
         <arena-api.version>0.6.0</arena-api.version>
-        <arena-module.version>0.14.3</arena-module.version>
+        <arena-module.version>0.14.4</arena-module.version>
     </properties>
 
     <modules>

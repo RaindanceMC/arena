@@ -71,8 +71,9 @@ public record ArenaSettings(
         int mostStake,
 
         @In("arena") @Title("Gladiator skin")
-        @Describe("The name of a Minecraft account whose skin the gladiators in the hub wear under their armour. "
-                + "Empty is a plain suit. Applies to gladiators placed afterwards.")
+        @Describe("A Minecraft account's name, a MineSkin link (mineskin.org) or mineskin:<id> — the skin the "
+                + "gladiators in the hub wear under their armour. Empty is a plain suit. Applies to gladiators "
+                + "placed afterwards.")
         @Key("npc-skin")
         String npcSkin,
 

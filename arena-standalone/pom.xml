@@ -76,7 +76,7 @@
         <!-- 0.14.1: PostgreSQL: the stats upsert qualifies its columns and takes the larger wave without SQLite's two-argument MAX; stats tests run on both dialects. -->
         <!-- 0.14.2: a pit left flooded is read while the plugin enables, not on the first tick (no database work on the server thread). -->
         <!-- 0.14.3: the map pasting, the void generator and the floating leaderboards are RainsCore's now (PasteJob, VoidGenerator, FloatingBoards), shared with Capture the Flag. -->
-        <plugin.version>0.14.3</plugin.version>
+        <plugin.version>0.14.4</plugin.version>
     </properties>
 
     <dependencies>
