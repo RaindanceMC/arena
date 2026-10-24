@@ -1,0 +1,60 @@
+id: arena-fights
+title: Fighting players
+summary: Duels, sumo, teams, free for all and more — queueing, inviting, kits, rounds and rematches.
+intro: |
+  Pick a mode, pick a kit, find somebody who dislikes you. The details below.
+icon: DIAMOND_SWORD
+category: Games
+order: 11
+module: arena
+aliases: [pvp, duel, sumo, rematch, again, queue, invite, kit, kits, naval, ffa, teams, bo3, bo5]
+keywords: [fight, opponent, rounds, best of, kit, own gear, accept, deny, horse, pig, boat, guild war]
+commands: [pvp, rematch]
+related: [arena, arena-stakes, arena-waves]
+sections:
+  - question: Which kinds of fight are there?
+    title: Modes
+    text: |
+      <b>Duel</b> — one against one. <b>Teams</b> — 2v2 or 3v3. <b>Free for all</b> — 3 to 8, last one standing. <b>Sumo</b> — no damage, pushed out of the ring is out. <b>Naval battle</b> — the pit floods and everybody fights from a boat. <b>Mounted combat</b> — on a saddled pig with a spear, steered by a carrot on a stick. <b>Horseback combat</b> — horse, spear and shield. <b>Guild war</b> — your guild against another. <b>Guild training</b> — your own guild split in two.
+      The Lanista in the hub and {run:/arena} walk you through them with buttons.
+  - question: How do I find a fight?
+    title: Queueing
+    text: |
+      {cmd:/arena queue [mode] [kit] [stake]} (or {cmd:/pvp queue [mode] [kit]}) puts you in the queue. Words may come in any order: a mode name is a mode, a number is the stake, <b>bo3</b>/<b>bo5</b> are the number of rounds, <b>2v2</b>/<b>3v3</b> a team size, anything else is a kit, <b>own</b> is your own gear.
+      You can only be matched with somebody who asked for exactly the same thing. Your place shows above the hotbar. {run:/pvp leave} leaves the queue.
+      Other players see "X is waiting for a fight" with a [Join] button; {cmd:/pvp join [player]} does it by hand.
+  - question: How do free-for-all and teams start?
+    title: Waiting for more
+    text: |
+      A free-for-all needs three players, naval, mounted and horseback fights two, and each takes up to eight. Once the minimum is there the queue waits {setting:arena:ffa-wait-seconds|seconds} for more, then starts with whoever is waiting. Teams need two sides of the chosen size.
+  - question: How do I challenge a specific player?
+    title: Inviting
+    text: |
+      {cmd:/pvp invite [player] [mode] [kit] [stake] [bo3]} asks somebody to a duel, sumo, naval, mounted, horseback or a mob run together — teams and free for all come only from the queue. They have a minute to click [Accept] or [Decline] (or {cmd:/pvp accept [id]}, {cmd:/pvp deny [id]}). You can take it back with {cmd:/pvp cancel [id]}.
+      They may be on the survival server — if they say yes, they are brought over and the fight starts once they arrive. An accepted invite goes ahead of the queue.
+  - question: What happens in a round?
+    title: A round
+    text: |
+      Everybody is moved to their spawn, kitted out, healed, and held still for a {setting:arena:countdown-seconds|seconds} countdown (riders aren't held). Then FIGHT. Beaten players watch until the round is decided; a best-of series goes to the side that wins most rounds.
+      A round may last {setting:arena:fight-minutes|minutes}. When the time is up with nobody beaten, the whole fight is a <b>draw</b> and every stake goes back — nobody wins money by hiding.
+  - question: What are kits?
+    title: Kits
+    text: |
+      Ready-made gear: Gladiator, Knight, Netherite, Archer, Axe & Shield, Mace, Potions, UHC and others; sumo, naval, mounted and horseback have their own. The Armorer or {run:/arena} shows what each holds. Staff can add more.
+      <b>own</b> gives you a copy of what you carry on survival — only a copy, so nothing you win or lose in the arena touches the real items. Own gear and stakes need the survival server to be reachable. Fights in your own gear never use building or explosive kits.
+  - question: How does sumo work?
+    title: Sumo
+    text: |
+      Nobody can be hurt; you push. The ring reaches {setting:arena:sumo-radius|count} blocks from the pit's middle — past it you are out.
+  - question: What is the naval battle?
+    title: Naval battle
+    text: |
+      The pit floods {setting:arena:naval.depth|count} blocks deep over {setting:arena:naval.flood-seconds|seconds}, with everybody in a boat. {if:arena:naval.rain}It rains for those in the fight, and only for them.{/if} When it is over the pit is drained and every block is put back. A pit that cannot hold water calls the fight off before anything is lost.
+  - question: Can I ask for the same fight again?
+    title: Rematch
+    text: |
+      After a fight you get a [Rematch] button, or type {run:/rematch}. It starts once everybody from that fight asks: same kit, same rounds, same stake. You have a minute; if somebody left there is no rematch.
+  - question: What if somebody leaves mid-fight?
+    title: Leaving a fight
+    text: |
+      Quitting, going home or logging out takes you out of the fight and everybody is told. If it leaves one side standing, that side wins.

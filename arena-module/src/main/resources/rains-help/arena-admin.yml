@@ -1,0 +1,43 @@
+id: arena-admin
+title: Arena setup (staff)
+summary: "Building arena worlds, marking pits, setting the hub, kits, gladiators and leaderboards."
+intro: |
+  The arena builds itself about as well as a creeper builds a house. So someone has to.
+icon: STRUCTURE_BLOCK
+category: Staff
+order: 20
+module: arena
+permission: rainsarena.admin
+aliases: [arena-setup]
+keywords: [build, pit, hub, kit, npc, board, schematic, flood, hold]
+related: [arena]
+sections:
+  - question: How do I build a map?
+    title: Building worlds
+    text: |
+      Put a schematic into plugins/RainsArena/maps, then {cmd:/arena admin build [world] [map]}. It is pasted into a fresh empty world, whose border sits {setting:arena:border-margin|count} blocks past the map. Mod blocks are left out and reported. {run:/arena admin info} lists worlds, pits and maps.
+  - question: How do I set the hub?
+    title: The hub
+    text: |
+      Stand where players should arrive and {cmd:/arena admin sethub}, or give {cmd:/arena admin sethub [world] [x] [y] [z] [yaw] [pitch]} from the console. Admins build in creative.
+  - question: How do I mark a pit?
+    title: Pits
+    text: |
+      A pit needs a floor box and spawn points: {cmd:/arena admin pit [name] floor [world] [x1] [y1] [z1] [x2] [y2] [z2]}, {cmd:/arena admin pit [name] spawn} (where you stand, or with coordinates), {cmd:/arena admin pit [name] clearspawns} and {cmd:/arena admin pit [name] remove}. A pit that is not ready is skipped; `info` says which.
+  - question: How do I test the naval flood?
+    title: Flood and drain
+    text: |
+      {cmd:/arena admin flood [pit]} plays the flood without a fight so you can see it or check the pit holds water; {cmd:/arena admin drain [pit]} puts every block back. The pit counts as busy meanwhile.
+  - question: How do I add or remove kits?
+    title: Kits
+    text: |
+      Equip what you want, hold the icon item, then {cmd:/arena admin kit save [id] [name]}. {cmd:/arena admin kit remove [id]} deletes one. The id <b>own</b> is reserved.
+  - question: How do I place NPCs and boards?
+    title: NPCs and boards
+    text: |
+      {cmd:/arena admin npc place [role]} where you stand (roles: lanista, beastmaster, armorer, herald, gatekeeper, watcher), or from the console with coordinates; {cmd:/arena admin npc remove} the nearest. Their skin is {if:arena:npc-skin}set to <b>{setting:arena:npc-skin}</b>{else}a plain suit{/if}; it applies to those placed afterwards.
+      {cmd:/arena admin board place} floats a leaderboard here (it fills within half a minute), {cmd:/arena admin board remove} removes the nearest within five blocks.
+  - question: What about server updates?
+    title: Holding players
+    text: |
+      {cmd:/arena admin hold [players|all]} keeps people in the arena while survival restarts; {run:/arena admin return} sends everyone held back. They are also returned automatically when survival is up.

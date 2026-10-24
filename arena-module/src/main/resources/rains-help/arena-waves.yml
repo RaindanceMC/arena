@@ -1,0 +1,31 @@
+id: arena-waves
+title: Mob waves
+summary: Fight wave after wave of mobs alone or with friends — presets, your own setup, what counts as a win.
+intro: |
+  Zombies do not hold grudges. They are thorough, though.
+icon: ZOMBIE_HEAD
+category: Games
+order: 12
+module: arena
+aliases: [wave, waves, mobs, beastmaster, horde]
+keywords: [warmup, undead, nether, illagers, bossrush, endless, pve]
+related: [arena, arena-fights]
+sections:
+  - question: How do I start a mob run?
+    title: Starting
+    text: |
+      {cmd:/arena wave [preset] [kit]} starts one. The Beast Master and {run:/arena} offer buttons; {cmd:/pvp invite [player] waves [kit]} makes it a run together — up to four players.
+  - question: Which presets are there?
+    title: Presets
+    text: |
+      <b>warmup</b> — 5 waves of zombies and skeletons. <b>undead</b> — 10 waves of the undead. <b>nether</b> — 8 waves of blazes and brutes. <b>illagers</b> — 8 waves, one kind of raider each. <b>bossrush</b> — 6 single heavies. <b>endless</b> — never stops; how far can you get?
+      Or build your own: number of waves (up to 50), which mobs, how many in the first wave and how many each wave adds.
+  - question: How does a run work?
+    title: How it goes
+    text: |
+      Mobs appear in a ring round the pit's middle and hunt the nearest fighter still standing. They never burn, never despawn, drop nothing and are brought back if they wander off. When a wave is cleared the next begins after five seconds.
+      There is no time limit on waves.
+  - question: When do I win or lose?
+    title: Win and lose
+    text: |
+      Clear every wave and the run is won. If every player falls, the mobs win and you are told which wave you reached. Your best wave goes into your stats and the leaderboards. Nothing is lost on defeat — the arena never takes anything.

@@ -66,7 +66,7 @@ import java.util.List;
  */
 public final class ArenaModule implements FlexModule {
 
-    private static final ModuleInfo INFO = ModuleInfo.of("arena", "Arena", "0.14.4")
+    private static final ModuleInfo INFO = ModuleInfo.of("arena", "Arena", "0.15.0")
             .describedAs("A PvP arena server: duels, teams, free for all, sumo and mob waves, with kits or own gear.")
             .by("Raindancer118");
 

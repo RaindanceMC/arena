@@ -1,0 +1,50 @@
+id: arena
+title: The Arena
+summary: A server of its own for fights — how you get in, the hub, the gladiators, and how to get back out.
+intro: |
+  Welcome to the sand. Nothing you own on survival is at risk in here, so you may be as reckless as you please. I will be watching. From a safe distance.
+icon: IRON_SWORD
+category: Games
+order: 10
+module: arena
+aliases: [arena, hub, fight, fighting, gladiator, lanista, pvp-arena, spectate, stats, leaderboard]
+keywords: [duel, hub, back to survival, watch, stats, wins, npc]
+commands: [arena]
+related: [arena-fights, arena-waves, arena-stakes]
+sections:
+  - question: What is the arena?
+    title: The idea
+    text: |
+      A separate server behind the same network, built only for fighting. Your survival inventory stays safe at home; here you fight with a kit the arena hands you — or with a copy of your own gear. <b>Nothing is ever taken from you</b>, and nothing you find here goes back with you.
+      Type {run:/arena} for the front page: fight players, fight mob waves, look at kits, see the best, watch a fight or go home.
+  - question: How do I move around the arena?
+    title: Commands at a glance
+    text: |
+      {run:/arena hub} puts you back in the hub, {run:/arena leave} takes you home, {cmd:/arena queue [mode] [kit] [stake]} queues for a fight, {cmd:/arena wave [preset] [kit]} starts a mob run, {cmd:/arena spectate [player]} watches somebody's fight, {cmd:/arena stats [player]} shows a record.
+      Rather click than type? The gladiators standing in the hub do the same: the <b>Lanista</b> for fights and challenges, the <b>Beast Master</b> for waves, the <b>Armorer</b> for kits, the <b>Herald</b> for the best, the <b>Watcher</b> to watch, and the <b>Gatekeeper</b> to go back to survival.
+  - question: What is the hub like?
+    title: The hub
+    text: |
+      You arrive in {setting:arena:game-mode|lower} mode with empty hands, full health and no leftovers of anything. {if:arena:hub-fed}Your hunger stays full outside a fight.{/if}
+      Nobody can hurt you outside a fight, nobody can drop items, and no portal takes you anywhere. Fall off a map into the empty world below and you are simply brought back to the hub.
+  - question: Can anybody really die here?
+    title: Dying
+    text: |
+      No. A blow that would kill you is a <b>defeat</b> instead: nothing drops, no experience is lost, no money, no death insurance, no death snapshot. You watch the rest of the round, then everybody goes back to the hub.
+  - question: How do I leave?
+    title: Going home
+    text: |
+      {run:/arena leave} or the Gatekeeper sends you back to the survival server ({setting:arena:lobby-server}). If you are in a fight when you leave, you leave the fight too — and your side plays on without you.
+      If survival restarts for an update, you are held here and sent back automatically the moment it is up. Fight a little while you wait.
+  - question: How do I watch a fight?
+    title: Spectating
+    text: |
+      {cmd:/arena spectate [player]} puts you into somebody's fight as a watcher. The Watcher in the hub and the <b>Watch a fight</b> button list everything running. {run:/arena hub} brings you back.
+  - question: Where do I see who is best?
+    title: Stats
+    text: |
+      {cmd:/arena stats [player]} shows wins, losses, draws, kills, defeats and best wave for a player who has fought here. The Herald and the floating leaderboards in the hub rank the best.
+  - question: What are the walls and the border for?
+    title: Map border
+    text: |
+      Each map sits in an otherwise empty world with its border {setting:arena:border-margin|count} blocks past the edge. Falling off the edge brings you back to the hub.

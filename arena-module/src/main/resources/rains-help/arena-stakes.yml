@@ -1,0 +1,32 @@
+id: arena-stakes
+title: Stakes and money
+summary: Betting on your own fight, how pots are paid out, and /balance and /pay inside the arena.
+intro: |
+  Confident? Put your coins where your sword is. The arena merely holds the pot.
+icon: GOLD_INGOT
+category: Games
+order: 13
+module: arena
+aliases: [stake, bet, wager, balance, bal, money, pay, pot]
+keywords: [coins, win money, escrow, pot, payout]
+commands: [balance, pay]
+related: [arena-fights]
+sections:
+  - question: How do stakes work?
+    title: Staking
+    text: |
+      Add a number when you queue or invite — {cmd:/arena queue duel 500} — and every player puts that amount in before the fight. The money is held on the survival server, where it lives. Somebody who cannot pay calls the fight off before anybody moves, and nobody loses a thing.
+      {if:arena:most-stake > 0}The highest stake is {setting:arena:most-stake|number} (in the economy's smallest unit).{else}There is no upper limit set on this server, within reason.{/if} Only fights with the same stake are matched together.
+  - question: Who gets the pot?
+    title: Payouts
+    text: |
+      The winners share the pot, less the house's cut (set on the survival server). A draw — time up, or a called-off fight — gives every stake back. If a winner is paid from another survival server, the pots are shared so nothing is created or lost.
+      Payments are written down first and retried until survival confirms, so a restart cannot lose a pot. You are told "You won ..., paid out on survival".
+  - question: How do I see my money here?
+    title: /balance
+    text: |
+      {run:/balance} (also {cmd:/bal}, {cmd:/money}) shows your balance — the same money as on survival.
+  - question: Can I pay somebody from the arena?
+    title: /pay
+    text: |
+      {cmd:/pay [player] [amount]} works as it does on survival, with all of its rules, and it may ask you to confirm with a [Pay] button first. The other player may be here or on survival. If survival cannot be reached, I say so and nothing moves.
