@@ -66,7 +66,7 @@ import java.util.List;
  */
 public final class ArenaModule implements FlexModule {
 
-    private static final ModuleInfo INFO = ModuleInfo.of("arena", "Arena", "0.15.0")
+    private static final ModuleInfo INFO = ModuleInfo.of("arena", "Arena", "0.16.0")
             .describedAs("A PvP arena server: duels, teams, free for all, sumo and mob waves, with kits or own gear.")
             .by("Raindancer118");
 
@@ -230,6 +230,18 @@ public final class ArenaModule implements FlexModule {
                 }
             }
         };
+        // Screens for /screen — Core 2.10.0; on an older Core there are simply none.
+        try {
+            var screenHost = context.core().screens();
+            if (screenHost != null) {
+                new de.raindancer.modules.arena.service.ArenaScreens(stats, matches, queue, System::currentTimeMillis)
+                        .register(screenHost, context.plugin());
+                context.closeWith(() -> de.raindancer.modules.arena.service.ArenaScreens.KINDS
+                        .forEach(screenHost::unregister));
+            }
+        } catch (LinkageError olderCore) {
+            context.log().info("RainsCore is older than 2.10.0: no arena screens until it is updated.");
+        }
         ArenaServices services = new ArenaServices(context.plugin(), server, log, context.core().messages(),
                 context.chat().brand(), context.core(), settings::current, arena, matches, queue, invites, kits, waves,
                 npcs, stats, link, intents, screens, boards, rematches, floods);

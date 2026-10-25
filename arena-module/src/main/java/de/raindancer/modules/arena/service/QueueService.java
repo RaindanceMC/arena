@@ -144,6 +144,13 @@ public final class QueueService implements IArenaService {
         Scheduling.global(plugin, this::tick);
     }
 
+    /** How many people wait for a fight, any kind. Any thread. */
+    public int waitingCount() {
+        synchronized (this) {
+            return waiting.size();
+        }
+    }
+
     /** The fights in the queue that still wait for more people. */
     public List<OpenQueueRule.Open> openQueues() {
         List<QueueEntry> snapshot;
