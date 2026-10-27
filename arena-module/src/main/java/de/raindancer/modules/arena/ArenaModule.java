@@ -66,7 +66,7 @@ import java.util.List;
  */
 public final class ArenaModule implements FlexModule {
 
-    private static final ModuleInfo INFO = ModuleInfo.of("arena", "Arena", "0.16.0")
+    private static final ModuleInfo INFO = ModuleInfo.of("arena", "Arena", "0.16.1")
             .describedAs("A PvP arena server: duels, teams, free for all, sumo and mob waves, with kits or own gear.")
             .by("Raindancer118");
 
@@ -125,7 +125,8 @@ public final class ArenaModule implements FlexModule {
         NpcService npcs = new NpcService(context.plugin(), role -> settings.current().npcSkin());
         de.raindancer.modules.arena.api.wire.Wire wire = de.raindancer.modules.arena.api.wire.Wires.of(context.core(),
                 context.plugin());
-        link = new ArenaLink(wire, arena::homeOf);
+        link = new ArenaLink(wire, arena::homeOf, () -> java.util.Optional.of(arena.config().lobbyOrDefault()),
+                ArenaLink.STAKE);
         arena.transfer(link::send);
         log.info("Reaching the survival servers over {}.", wire instanceof de.raindancer.modules.arena.api.wire.NetworkWire
                 ? "the network" : "the server link");

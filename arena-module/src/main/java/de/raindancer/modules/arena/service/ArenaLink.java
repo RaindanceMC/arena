@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 /**
  * The arena's end of the way to the survival servers — a {@link Wire}, plus knowing which survival server each player
@@ -24,16 +25,27 @@ public final class ArenaLink {
 
     private final Wire wire;
     private final Function<UUID, Optional<String>> homes;
+    private final Supplier<Optional<String>> fallback;
     private final Duration stakeWait;
 
     /** @param homes the survival server somebody was sent over from, as the arena knows it */
     public ArenaLink(Wire wire, Function<UUID, Optional<String>> homes) {
-        this(wire, homes, STAKE);
+        this(wire, homes, Optional::empty, STAKE);
     }
 
     public ArenaLink(Wire wire, Function<UUID, Optional<String>> homes, Duration stakeWait) {
+        this(wire, homes, Optional::empty, stakeWait);
+    }
+
+    /**
+     * @param fallback the survival server of whoever nobody sent (they came through the hub or straight in) — the one
+     *                 they are sent back to as well, so their gear and money are asked of where they actually live
+     */
+    public ArenaLink(Wire wire, Function<UUID, Optional<String>> homes, Supplier<Optional<String>> fallback,
+                     Duration stakeWait) {
         this.wire = wire;
         this.homes = homes;
+        this.fallback = fallback;
         this.stakeWait = stakeWait;
     }
 
@@ -46,9 +58,12 @@ public final class ArenaLink {
         return wire.reachable();
     }
 
-    /** The survival server this player belongs to; on a link the one there is. Empty when nobody sent them. */
+    /**
+     * The survival server this player belongs to; on a link the one there is; for whoever nobody sent, the fallback.
+     * Empty only when there is none of these.
+     */
     public Optional<String> homeOf(UUID player) {
-        return homes.apply(player).or(wire::defaultPeer);
+        return homes.apply(player).or(wire::defaultPeer).or(fallback);
     }
 
     /** The one survival server there is — a link's; empty on a network, where somebody must say which. */

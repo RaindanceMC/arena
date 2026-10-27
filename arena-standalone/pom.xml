@@ -77,7 +77,7 @@
         <!-- 0.14.2: a pit left flooded is read while the plugin enables, not on the first tick (no database work on the server thread). -->
         <!-- 0.14.3: the map pasting, the void generator and the floating leaderboards are RainsCore's now (PasteJob, VoidGenerator, FloatingBoards), shared with Capture the Flag. -->
         <!-- 0.15.0: /help guide — the arena, fighting players, mob waves, stakes and money, staff setup (RainsCore 2.4). -->
-        <plugin.version>0.16.0</plugin.version>
+        <plugin.version>0.16.1</plugin.version>
     </properties>
 
     <dependencies>

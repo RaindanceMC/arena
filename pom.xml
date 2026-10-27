@@ -23,7 +23,7 @@
         <arena-api.version>0.6.0</arena-api.version>
         <rainscore.version>2.10.1</rainscore.version>
         <modules-wrapper.version>1.11.0</modules-wrapper.version>
-        <arena-module.version>0.16.0</arena-module.version>
+        <arena-module.version>0.16.1</arena-module.version>
     </properties>
 
     <modules>

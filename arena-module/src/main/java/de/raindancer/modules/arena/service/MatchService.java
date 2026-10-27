@@ -254,6 +254,8 @@ public final class MatchService implements IArenaService {
         }).whenComplete((refused, failure) -> Scheduling.global(plugin, () -> {
             if (failure != null || refused.isPresent()) {
                 String why = failure != null ? "the survival server" : refused.get();
+                log.warn("Fight {} called off: {} could not be got ready{}.", fight.id(), why,
+                        failure != null ? " (" + failure.getMessage() + ")" : "");
                 tellAll(fight, "arena.fight.called-off", "who", why);
                 if (spec.stake() > 0) {
                     // Even when the answer was lost: a server that did hold is told to give back, until it says it did.
@@ -274,6 +276,8 @@ public final class MatchService implements IArenaService {
         for (UUID player : fight.players()) {
             asked.add(link.askHome(player, ArenaProtocol.GEAR, Map.of("player", player.toString())).handle((answer, failure) -> {
                 if (failure != null || !"true".equals(answer.get("ok"))) {
+                    log.warn("Fight {}: no copy of {}'s gear ({}).", fight.id(), name(player),
+                            failure != null ? failure.getMessage() : "survival said no");
                     return Optional.of(name(player));
                 }
                 List<String> slots = new ArrayList<>();

@@ -133,6 +133,21 @@ class StakeServiceTest {
     }
 
     @Test
+    @DisplayName("somebody who came from the hub belongs to the lobby survival server, which holds their stake")
+    void hubArrivalBelongsToLobbyServer() throws Exception {
+        escrow("smp-1", true);
+        escrow("smp-2", true);
+        UUID fromHub = UUID.randomUUID();
+        ArenaLink link = new ArenaLink(wire("arena"), player -> Optional.ofNullable(homes.get(player)),
+                () -> Optional.of("smp-2"), Duration.ofSeconds(5));
+        StakeService stakes = new StakeService(link, book(), UUID::toString);
+
+        assertThat(link.homeOf(fromHub)).contains("smp-2");
+        assertThat(stakes.hold(UUID.randomUUID(), List.of(ADA, fromHub), 100).get(10, TimeUnit.SECONDS)).isEmpty();
+        assertThat(heard).containsExactlyInAnyOrder("smp-1 hold " + ADA + " 100", "smp-2 hold " + fromHub + " 100");
+    }
+
+    @Test
     @DisplayName("a winner from the other server is paid out of both pots, and each server pays only what it holds")
     void payAcrossServers() throws Exception {
         escrow("smp-1", true);
