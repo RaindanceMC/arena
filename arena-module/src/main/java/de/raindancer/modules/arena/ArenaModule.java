@@ -91,7 +91,6 @@ public final class ArenaModule implements FlexModule {
 
         context.core().messages().defineFrom(ArenaModule.class.getResourceAsStream("messages.yml"),
                 context.chat().brand()::chatPrefix);
-        context.core().messages().seriousFrom(ArenaModule.class.getResourceAsStream("messages-serious.yml"));
 
         int registered = PermissionNodes.register(server);
         if (registered > 0) {
