@@ -1,11 +1,11 @@
-# Generated in shape by StandaloneDescriptor and checked by DescriptorTest — see rtp-standalone's own copy for
+# Generated in shape by StandaloneDescriptor and checked by DescriptorTest. See rtp-standalone's own copy for
 # why every line here matters, and for the two ways of writing this file that fail silently.
 name: ${plugin.name}
 version: '${plugin.version}'
 main: de.raindancer.modules.wrapper.ModulePlugin
 bootstrapper: de.raindancer.modules.wrapper.ModuleBootstrap
 api-version: '26.3'
-description: 'A PvP arena in worlds of its own — duels, mob waves, kits or your own gear, and nothing carried in is ever lost.'
+description: 'A PvP arena in worlds of its own: duels, mob waves, kits or your own gear. Nothing carried in is ever lost.'
 author: Raindancer118
 website: https://github.com/Raindancer118/RainsCore
 

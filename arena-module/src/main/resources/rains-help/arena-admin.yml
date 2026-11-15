@@ -2,7 +2,7 @@ id: arena-admin
 title: Arena setup (staff)
 summary: "Building arena worlds, marking pits, setting the hub, kits, gladiators and leaderboards."
 intro: |
-  The arena builds itself about as well as a creeper builds a house. So someone has to.
+  The arena does not build itself. Staff set up its worlds, pits, hub, kits and gladiators.
 icon: STRUCTURE_BLOCK
 category: Staff
 order: 20

@@ -1,8 +1,8 @@
 id: arena-fights
 title: Fighting players
-summary: Duels, sumo, teams, free for all and more — queueing, inviting, kits, rounds and rematches.
+summary: "Duels, sumo, teams, free for all and more: queueing, inviting, kits, rounds and rematches."
 intro: |
-  Pick a mode, pick a kit, find somebody who dislikes you. The details below.
+  Pick a mode and a kit, then find an opponent. The details are below.
 icon: DIAMOND_SWORD
 category: Games
 order: 11
@@ -15,7 +15,7 @@ sections:
   - question: Which kinds of fight are there?
     title: Modes
     text: |
-      <b>Duel</b> — one against one. <b>Teams</b> — 2v2 or 3v3. <b>Free for all</b> — 3 to 8, last one standing. <b>Sumo</b> — no damage, pushed out of the ring is out. <b>Naval battle</b> — the pit floods and everybody fights from a boat. <b>Mounted combat</b> — on a saddled pig with a spear, steered by a carrot on a stick. <b>Horseback combat</b> — horse, spear and shield. <b>Guild war</b> — your guild against another. <b>Guild training</b> — your own guild split in two.
+      <b>Duel</b>: one against one. <b>Teams</b>: 2v2 or 3v3. <b>Free for all</b>: 3 to 8 players, the last one standing wins. <b>Sumo</b>: no damage, whoever is pushed out of the ring is out. <b>Naval battle</b>: the pit floods and everybody fights from a boat. <b>Mounted combat</b>: on a saddled pig with a spear, steered with a carrot on a stick. <b>Horseback combat</b>: horse, spear and shield. <b>Guild war</b>: your guild against another. <b>Guild training</b>: your own guild split in two.
       The Lanista in the hub and {run:/arena} walk you through them with buttons.
   - question: How do I find a fight?
     title: Queueing
@@ -30,22 +30,22 @@ sections:
   - question: How do I challenge a specific player?
     title: Inviting
     text: |
-      {cmd:/pvp invite [player] [mode] [kit] [stake] [bo3]} asks somebody to a duel, sumo, naval, mounted, horseback or a mob run together — teams and free for all come only from the queue. They have a minute to click [Accept] or [Decline] (or {cmd:/pvp accept [id]}, {cmd:/pvp deny [id]}). You can take it back with {cmd:/pvp cancel [id]}.
-      They may be on the survival server — if they say yes, they are brought over and the fight starts once they arrive. An accepted invite goes ahead of the queue.
+      {cmd:/pvp invite [player] [mode] [kit] [stake] [bo3]} asks somebody to a duel, sumo, naval, mounted, horseback or a mob run together. Teams and free for all come only from the queue. They have a minute to click [Accept] or [Decline] (or {cmd:/pvp accept [id]}, {cmd:/pvp deny [id]}). You can take it back with {cmd:/pvp cancel [id]}.
+      They may be on the survival server. If they say yes, they are brought over and the fight starts once they arrive. An accepted invite goes ahead of the queue.
   - question: What happens in a round?
     title: A round
     text: |
-      Everybody is moved to their spawn, kitted out, healed, and held still for a {setting:arena:countdown-seconds|seconds} countdown (riders aren't held). Then FIGHT. Beaten players watch until the round is decided; a best-of series goes to the side that wins most rounds.
-      A round may last {setting:arena:fight-minutes|minutes}. When the time is up with nobody beaten, the whole fight is a <b>draw</b> and every stake goes back — nobody wins money by hiding.
+      Everybody is moved to their spawn, kitted out, healed, and held still for a {setting:arena:countdown-seconds|seconds} countdown (riders are not held). Then the fight starts. Beaten players watch until the round is decided; a best-of series goes to the side that wins most rounds.
+      A round may last {setting:arena:fight-minutes|minutes}. When the time is up with nobody beaten, the whole fight is a <b>draw</b> and every stake goes back, so nobody can win money by hiding.
   - question: What are kits?
     title: Kits
     text: |
       Ready-made gear: Gladiator, Knight, Netherite, Archer, Axe & Shield, Mace, Potions, UHC and others; sumo, naval, mounted and horseback have their own. The Armorer or {run:/arena} shows what each holds. Staff can add more.
-      <b>own</b> gives you a copy of what you carry on survival — only a copy, so nothing you win or lose in the arena touches the real items. Own gear and stakes need the survival server to be reachable. Fights in your own gear never use building or explosive kits.
+      <b>own</b> gives you a copy of what you carry on survival. It is only a copy, so nothing you win or lose in the arena touches the real items. Own gear and stakes need the survival server to be reachable. Fights in your own gear never use building or explosive kits.
   - question: How does sumo work?
     title: Sumo
     text: |
-      Nobody can be hurt; you push. The ring reaches {setting:arena:sumo-radius|count} blocks from the pit's middle — past it you are out.
+      Nobody can be hurt; you push. The ring reaches {setting:arena:sumo-radius|count} blocks from the pit's middle. Anyone past it is out.
   - question: What is the naval battle?
     title: Naval battle
     text: |
