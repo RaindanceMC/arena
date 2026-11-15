@@ -340,7 +340,7 @@ public final class ArenaCommand implements IArenaCommand {
     private static void info(ArenaServices live, CommandSender sender) {
         Layout layout = live.arena().layout();
         live.messages().send(sender, "arena.admin.info.head", "worlds", layout.worlds().size(),
-                "pits", layout.pits().size(), "hub", layout.hub().map(Place::world).orElse("—"));
+                "pits", layout.pits().size(), "hub", layout.hub().map(Place::world).orElse("none"));
         for (ArenaWorld world : layout.worlds()) {
             Box box = world.mapBox();
             live.messages().send(sender, "arena.admin.info.world", "world", world.name(), "map", world.map(),

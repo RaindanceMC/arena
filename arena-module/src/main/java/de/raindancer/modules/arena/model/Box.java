@@ -10,7 +10,7 @@ public record Box(String world, int minX, int minY, int minZ, int maxX, int maxY
             throw new IllegalArgumentException("a box needs a world");
         }
         if (minX > maxX || minY > maxY || minZ > maxZ) {
-            throw new IllegalArgumentException("a box's minimum is past its maximum — use Box.of");
+            throw new IllegalArgumentException("a box's minimum is past its maximum, use Box.of");
         }
     }
 

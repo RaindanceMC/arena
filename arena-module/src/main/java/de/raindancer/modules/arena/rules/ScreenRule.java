@@ -14,7 +14,7 @@ public final class ScreenRule implements IArenaRule {
     public String you(Stats record) {
         StringBuilder out = new StringBuilder("<gold><bold>Your arena record</bold></gold>");
         if (record == null || record.wins() + record.losses() + record.draws() + record.kills() + record.bestWave() == 0) {
-            return out.append("\n<gray>No fight yet — <white>/arena").toString();
+            return out.append("\n<gray>No fight yet. <white>/arena").toString();
         }
         int fights = record.wins() + record.losses() + record.draws();
         out.append("\n<gray>Wins <white>").append(record.wins()).append(" <dark_gray>· <gray>Losses <white>")

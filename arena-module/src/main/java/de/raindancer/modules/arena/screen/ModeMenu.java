@@ -39,24 +39,24 @@ public final class ModeMenu extends Menu implements IArenaScreen {
                 "<gray>Three to eight, everybody against everybody.", "<gray>The last one standing wins."),
                 click -> pickKit(new MatchSpec(Mode.FFA, null, 1, 0, 1, null)));
         band(2, 4, Icons.of(Material.CARROT_ON_A_STICK, "<light_purple>Mounted combat",
-                        "<gray>Everybody on a pig, spear in hand.", "<gray>Steer with the carrot on a stick —",
-                        "<gray>nobody gets off. Two to eight."),
+                        "<gray>Everybody on a pig, spear in hand.", "<gray>Steer with the carrot on a stick.",
+                        "<gray>Nobody gets off. Two to eight."),
                 click -> new FightOptionsMenu(services, viewer, this, new MatchSpec(Mode.MOUNTED, null, 1, 0, 1, null)).open());
         band(2, 6, Icons.of(Material.SADDLE, "<gold>Horseback combat",
                         "<gray>Everybody on a horse, spear and shield.", "<gray>Nobody gets off. Two to eight."),
                 click -> new FightOptionsMenu(services, viewer, this, new MatchSpec(Mode.HORSEBACK, null, 1, 0, 1, null)).open());
         band(3, 2, Icons.of(Material.WHITE_BANNER, "<gold>Guild war",
-                        "<gray>Your guild against another guild,", "<gray>a side each — from two to five a side."),
+                        "<gray>Your guild against another guild,", "<gray>a side each, from two to five a side."),
                 click -> pickKit(new MatchSpec(Mode.GUILD_WAR, null, 1, 0, 2, null)));
         band(3, 6, Icons.of(Material.TARGET, "<yellow>Guild training",
                         "<gray>Your own guild, split into two sides.", "<gray>Practice before the next war."),
                 click -> pickKit(new MatchSpec(Mode.GUILD_TRAINING, null, 1, 0, 2, null)));
         band(2, 2, Icons.of(Material.OAK_BOAT, "<aqua>Naval battle",
-                        "<gray>The pit floods. Everybody in a boat,", "<gray>tridents in hand — the last one afloat wins.",
+                        "<gray>The pit floods. Everybody in a boat,", "<gray>tridents in hand. The last one afloat wins.",
                         "<gray>Two to eight, from the queue."),
                 click -> new FightOptionsMenu(services, viewer, this, new MatchSpec(Mode.NAVAL, null, 1, 0, 1, null)).open());
         band(3, 4, Icons.of(Material.PLAYER_HEAD, "<gold><bold>Challenge a player",
-                        "<gray>Pick somebody — here or on survival —", "<gray>then the fight, the kit and the stake.",
+                        "<gray>Pick somebody here or on survival,", "<gray>then the fight, the kit and the stake.",
                         "<gray>They get a minute to accept."),
                 click -> new de.raindancer.core.ui.choose.PlayerChooser(viewer, services.brand(), this, "Challenge whom?",
                         de.raindancer.modules.arena.util.OnlinePlayers.reachable(services.server(), services.link()::names),

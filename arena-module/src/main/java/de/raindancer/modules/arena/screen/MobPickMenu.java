@@ -32,7 +32,7 @@ public final class MobPickMenu extends PaginatedMenu<String> implements IArenaSc
 
     @Override
     protected Component title() {
-        return MiniMessage.miniMessage().deserialize("<dark_gray>Mobs — " + chosen.size() + " chosen");
+        return MiniMessage.miniMessage().deserialize("<dark_gray>Mobs · " + chosen.size() + " chosen");
     }
 
     @Override

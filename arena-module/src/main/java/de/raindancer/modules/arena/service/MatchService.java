@@ -254,7 +254,7 @@ public final class MatchService implements IArenaService {
         }).whenComplete((refused, failure) -> Scheduling.global(plugin, () -> {
             if (failure != null || refused.isPresent()) {
                 String why = failure != null ? "the survival server" : refused.get();
-                log.warn("Fight {} called off: {} could not be got ready{}.", fight.id(), why,
+                log.warn("Fight {} called off: {} could not be made ready{}.", fight.id(), why,
                         failure != null ? " (" + failure.getMessage() + ")" : "");
                 tellAll(fight, "arena.fight.called-off", "who", why);
                 if (spec.stake() > 0) {

@@ -13,18 +13,18 @@ public final class BoardRule implements IArenaRule {
     public String text(List<Stats> byWins, List<Stats> byWave) {
         StringBuilder out = new StringBuilder("<gold><bold>⚔ ARENA CHAMPIONS ⚔</bold></gold>\n");
         if (byWins.isEmpty()) {
-            out.append("<gray>No champion yet — be the first!\n");
+            out.append("<gray>No champion yet.\n");
         }
         for (int index = 0; index < byWins.size(); index++) {
             Stats each = byWins.get(index);
-            out.append(place(index)).append(" <white>").append(name(each)).append("</white> <gray>— <yellow>")
+            out.append(place(index)).append(" <white>").append(name(each)).append("</white> <gray>· <yellow>")
                     .append(each.wins()).append(each.wins() == 1 ? " win" : " wins").append("\n");
         }
         if (!byWave.isEmpty()) {
             out.append("\n<red><bold>☠ WAVE SURVIVORS ☠</bold></red>\n");
             for (int index = 0; index < byWave.size(); index++) {
                 Stats each = byWave.get(index);
-                out.append(place(index)).append(" <white>").append(name(each)).append("</white> <gray>— wave <yellow>")
+                out.append(place(index)).append(" <white>").append(name(each)).append("</white> <gray>· wave <yellow>")
                         .append(each.bestWave()).append("\n");
             }
         }

@@ -32,7 +32,7 @@ public final class ArenaMenu extends Menu implements IArenaScreen {
                 "<gray>Find an opponent or ask somebody."), "You are in a fight.",
                 click -> new ModeMenu(services, viewer, this).open());
         band(1, 3, !fighting, Icons.of(Material.ZOMBIE_HEAD, "<red>Fight waves",
-                "<gray>Mobs, wave after wave — alone or with a friend.",
+                "<gray>Mobs, wave after wave, alone or with a friend.",
                 "<gray>Six quick presets, or set it up yourself."), "You are in a fight.",
                 click -> new WavesMenu(services, viewer, this).open());
         band(1, 4, Icons.of(Material.ARMOR_STAND, "<aqua>Kits", "<gray>See what every kit holds."),

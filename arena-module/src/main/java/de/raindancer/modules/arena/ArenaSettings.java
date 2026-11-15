@@ -22,7 +22,7 @@ import org.bukkit.Material;
 public record ArenaSettings(
 
         @In("arena") @Title("Server to go back to")
-        @Describe("The proxy's name for the server /arena leave sends people back to — the survival server.")
+        @Describe("The proxy's name for the server /arena leave sends people back to (the survival server).")
         @Key("lobby-server")
         String lobbyServer,
 
@@ -44,8 +44,8 @@ public record ArenaSettings(
         boolean hubFed,
 
         @In("arena") @Title("Time limit of a fight") @Range(min = 1, max = 60)
-        @Describe("Minutes a round may last. When it is up the fight is a draw and every stake goes back — "
-                + "nobody wins money by hiding. Mob waves have no limit.")
+        @Describe("Minutes a round may last. When it is up the fight is a draw and every stake goes back, "
+                + "so nobody wins money by hiding. Mob waves have no limit.")
         @Key("fight-minutes")
         int fightMinutes,
 
@@ -71,7 +71,7 @@ public record ArenaSettings(
         int mostStake,
 
         @In("arena") @Title("Gladiator skin")
-        @Describe("A Minecraft account's name, a MineSkin link (mineskin.org) or mineskin:<id> — the skin the "
+        @Describe("A Minecraft account's name, a MineSkin link (mineskin.org) or mineskin:<id>. It is the skin the "
                 + "gladiators in the hub wear under their armour. Empty is a plain suit. Applies to gladiators "
                 + "placed afterwards.")
         @Key("npc-skin")
@@ -83,12 +83,12 @@ public record ArenaSettings(
         int navalDepth,
 
         @In("arena") @Title("Naval battle: the flood takes") @Range(min = 3, max = 30)
-        @Describe("Seconds from the first wave to full water — the show before the countdown.")
+        @Describe("Seconds from the first wave to full water, before the countdown.")
         @Key("naval.flood-seconds")
         int navalFloodSeconds,
 
         @In("arena") @Title("Naval battle: rain")
-        @Describe("Rain for everybody in a naval battle while it lasts. Only for them — the weather itself is untouched.")
+        @Describe("Rain for everybody in a naval battle while it lasts. The weather itself is untouched.")
         @Key("naval.rain")
         boolean navalRain) {
 

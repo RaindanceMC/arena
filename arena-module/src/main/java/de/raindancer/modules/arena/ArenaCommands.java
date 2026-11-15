@@ -19,7 +19,7 @@ public final class ArenaCommands {
 
     public static List<ModuleCommand> declared() {
         return List.of(
-                ModuleCommand.of("arena", "The arena: fights, mob waves, kits, the best — and back to survival",
+                ModuleCommand.of("arena", "The arena: fights, mob waves, kits, the best, and the way back to survival",
                                 new ArenaCommand(ArenaCommands::require))
                         .taking("menu", "hub", "leave", "queue [mode] [kit] [stake]", "wave [preset] [kit]",
                                 "spectate <player>", "stats [player]", "admin build <world> <map>",
@@ -30,10 +30,10 @@ public final class ArenaCommands {
                                 new de.raindancer.modules.arena.command.PvpCommand(ArenaCommands::require))
                         .taking("invite <player> [mode] [kit] [stake]", "accept [id]", "deny [id]", "cancel [id]",
                                 "queue [mode] [kit]", "leave"),
-                ModuleCommand.of("rematch", "The fight you just had, again — once everybody in it asks",
+                ModuleCommand.of("rematch", "Fight your last fight again once everybody in it asks",
                                 new de.raindancer.modules.arena.command.RematchCommand(ArenaCommands::require))
                         .aliased("again"),
-                ModuleCommand.of("balance", "Your balance — the same money as on survival",
+                ModuleCommand.of("balance", "Your balance (the same money as on survival)",
                                 new de.raindancer.modules.arena.command.WalletCommand(ArenaCommands::require, false))
                         .aliased("bal", "money"),
                 ModuleCommand.of("pay", "Pay somebody, here or on survival",
