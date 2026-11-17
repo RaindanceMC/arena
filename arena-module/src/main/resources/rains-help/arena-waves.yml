@@ -14,7 +14,7 @@ sections:
   - question: How do I start a mob run?
     title: Starting
     text: |
-      {cmd:/arena wave [preset] [kit]} starts one. The Beast Master and {run:/arena} offer buttons; {cmd:/pvp invite [player] waves [kit]} makes it a run together, up to four players.
+      {cmd:/arena wave [preset] [kit]} starts one. The Beast Master and {run:/arena} offer buttons; {cmd:/duel invite [player] waves [kit]} makes it a run together, up to four players.
   - question: Which presets are there?
     title: Presets
     text: |

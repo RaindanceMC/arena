@@ -9,7 +9,7 @@ order: 11
 module: arena
 aliases: [pvp, duel, sumo, rematch, again, queue, invite, kit, kits, naval, ffa, teams, bo3, bo5]
 keywords: [fight, opponent, rounds, best of, kit, own gear, accept, deny, horse, pig, boat, guild war]
-commands: [pvp, rematch]
+commands: [duel, rematch]
 related: [arena, arena-stakes, arena-waves]
 sections:
   - question: Which kinds of fight are there?
@@ -20,9 +20,9 @@ sections:
   - question: How do I find a fight?
     title: Queueing
     text: |
-      {cmd:/arena queue [mode] [kit] [stake]} (or {cmd:/pvp queue [mode] [kit]}) puts you in the queue. Words may come in any order: a mode name is a mode, a number is the stake, <b>bo3</b>/<b>bo5</b> are the number of rounds, <b>2v2</b>/<b>3v3</b> a team size, anything else is a kit, <b>own</b> is your own gear.
-      You can only be matched with somebody who asked for exactly the same thing. Your place shows above the hotbar. {run:/pvp leave} leaves the queue.
-      Other players see "X is waiting for a fight" with a [Join] button; {cmd:/pvp join [player]} does it by hand.
+      {cmd:/arena queue [mode] [kit] [stake]} (or {cmd:/duel queue [mode] [kit]}) puts you in the queue. Words may come in any order: a mode name is a mode, a number is the stake, <b>bo3</b>/<b>bo5</b> are the number of rounds, <b>2v2</b>/<b>3v3</b> a team size, anything else is a kit, <b>own</b> is your own gear.
+      You can only be matched with somebody who asked for exactly the same thing. Your place shows above the hotbar. {run:/duel leave} leaves the queue.
+      Other players see "X is waiting for a fight" with a [Join] button; {cmd:/duel join [player]} does it by hand.
   - question: How do free-for-all and teams start?
     title: Waiting for more
     text: |
@@ -30,7 +30,7 @@ sections:
   - question: How do I challenge a specific player?
     title: Inviting
     text: |
-      {cmd:/pvp invite [player] [mode] [kit] [stake] [bo3]} asks somebody to a duel, sumo, naval, mounted, horseback or a mob run together. Teams and free for all come only from the queue. They have a minute to click [Accept] or [Decline] (or {cmd:/pvp accept [id]}, {cmd:/pvp deny [id]}). You can take it back with {cmd:/pvp cancel [id]}.
+      {cmd:/duel invite [player] [mode] [kit] [stake] [bo3]} asks somebody to a duel, sumo, naval, mounted, horseback or a mob run together. Teams and free for all come only from the queue. They have a minute to click [Accept] or [Decline] (or {cmd:/duel accept [id]}, {cmd:/duel deny [id]}). You can take it back with {cmd:/duel cancel [id]}.
       They may be on the survival server. If they say yes, they are brought over and the fight starts once they arrive. An accepted invite goes ahead of the queue.
   - question: What happens in a round?
     title: A round

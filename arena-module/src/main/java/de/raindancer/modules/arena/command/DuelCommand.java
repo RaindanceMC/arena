@@ -16,17 +16,17 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 /**
- * {@code /pvp invite <player> [mode] [kit|own] [stake] [bo3]}, {@code accept [id]}, {@code deny [id]},
+ * {@code /duel invite <player> [mode] [kit|own] [stake] [bo3]}, {@code accept [id]}, {@code deny [id]},
  * {@code queue [mode] [kit]}, {@code join <player> <fight>} (the fight a [Join] button showed), {@code leave}, {@code rematch}. An invite works for somebody here and for somebody on survival.
  */
-public final class PvpCommand implements IArenaCommand {
+public final class DuelCommand implements IArenaCommand {
 
     private static final List<String> SUBCOMMANDS = List.of("invite", "accept", "deny", "cancel", "queue", "join", "leave",
             "rematch");
 
     private final Supplier<ArenaServices> services;
 
-    public PvpCommand(Supplier<ArenaServices> services) {
+    public DuelCommand(Supplier<ArenaServices> services) {
         this.services = services;
     }
 
@@ -41,13 +41,13 @@ public final class PvpCommand implements IArenaCommand {
         switch (what) {
             case "invite" -> {
                 if (args.length < 2) {
-                    live.messages().send(player, "arena.pvp.usage");
+                    live.messages().send(player, "arena.duel.usage");
                     return;
                 }
                 MatchSpec spec = SpecArgs.parse(args, 2, Mode.DUEL);
                 if (spec.mode() != Mode.DUEL && spec.mode() != Mode.SUMO && spec.mode() != Mode.WAVES
                         && spec.mode() != Mode.NAVAL && spec.mode() != Mode.MOUNTED && spec.mode() != Mode.HORSEBACK) {
-                    live.messages().send(player, "arena.pvp.only-duels");
+                    live.messages().send(player, "arena.duel.only-duels");
                     return;
                 }
                 live.invites().invite(player, args[1], spec);
@@ -60,13 +60,13 @@ public final class PvpCommand implements IArenaCommand {
                     ? "arena.queue.left" : "arena.queue.not-in");
             case "join" -> {
                 if (args.length < 2) {
-                    live.messages().send(player, "arena.pvp.usage");
+                    live.messages().send(player, "arena.duel.usage");
                     return;
                 }
                 live.queue().joinLike(player, args[1], args.length > 2 ? args[2] : null);
             }
             case "rematch" -> live.rematches().ask(player);
-            default -> live.messages().send(player, "arena.pvp.usage");
+            default -> live.messages().send(player, "arena.duel.usage");
         }
     }
 

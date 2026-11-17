@@ -195,7 +195,7 @@ public final class InviteService {
                 });
     }
 
-    /** The one who asked takes it back: {@code /pvp cancel [id]}, or the [Cancel] button. */
+    /** The one who asked takes it back: {@code /duel cancel [id]}, or the [Cancel] button. */
     public void cancel(Player player, String id) {
         List<Invite> mine = madeBy(player.getUniqueId());
         Optional<Invite> found = id == null ? (mine.size() == 1 ? Optional.of(mine.getFirst()) : Optional.empty())

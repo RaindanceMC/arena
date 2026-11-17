@@ -17,7 +17,7 @@ arena:
   leaving: "<gray>Back to <white><server></white>…"
 
   queue:
-    joined: "<green>Waiting for a <white><mode></white> fight with <white><kit></white>. <click:run_command:'/pvp leave'><red>[Leave the queue]</red></click>"
+    joined: "<green>Waiting for a <white><mode></white> fight with <white><kit></white>. <click:run_command:'/duel leave'><red>[Leave the queue]</red></click>"
     left: "<gray>You left the queue."
     not-in: "<gray>You are not waiting for a fight."
     in-fight: "<red>Finish your fight first."
@@ -25,8 +25,8 @@ arena:
     no-survival: "<red>Stakes and own gear need the survival server, which cannot be reached right now."
     bar-agreed: "<gold><mode></gold> <gray>·</gray> <white><kit></white> <gray>· with <white><others></white> · waiting for a free pit"
     bar: "<gold><mode></gold> <gray>·</gray> <white><kit></white> <gray>· place <white><place></white> of <white><waiting></white>, <white><needed></white> make a fight"
-    open: "<gold><white><player></white> is waiting for a <white><mode></white> fight with <white><kit></white> <gray>(<white><waiting></white>/<white><needed></white>)</gray>. <click:run_command:'/pvp join <player> <fight>'><green>[Join]</green></click>"
-    open-stake: "<gold><white><player></white> is waiting for a <white><mode></white> fight with <white><kit></white>, stake <white><stake></white> <gray>(<white><waiting></white>/<white><needed></white>)</gray>. <click:run_command:'/pvp join <player> <fight>'><green>[Join]</green></click>"
+    open: "<gold><white><player></white> is waiting for a <white><mode></white> fight with <white><kit></white> <gray>(<white><waiting></white>/<white><needed></white>)</gray>. <click:run_command:'/duel join <player> <fight>'><green>[Join]</green></click>"
+    open-stake: "<gold><white><player></white> is waiting for a <white><mode></white> fight with <white><kit></white>, stake <white><stake></white> <gray>(<white><waiting></white>/<white><needed></white>)</gray>. <click:run_command:'/duel join <player> <fight>'><green>[Join]</green></click>"
     no-guild: "<red>A guild fight needs a guild. Create one on survival with /guild create, or join one."
     no-guild-info: "<red>The survival server could not say which guild you are in, so you are not queued."
     for-guild: "<gray>You fight for <white><guild></white> <dark_gray>[<tag>]</dark_gray>."
@@ -99,8 +99,8 @@ arena:
     line: "<gold><player></gold><gray>: wins <white><wins></white>, losses <white><losses></white>, draws <white><draws></white>, kills <white><kills></white>, defeats <white><deaths></white>, best wave <white><wave></white>"
     none: "<gray><white><player></white> has not fought in the arena yet."
 
-  pvp:
-    usage: "<gray>/pvp invite <player> [duel|sumo|naval|mounted|horse|waves] [kit|own] [stake] [bo3]  ·  /pvp accept  ·  /pvp deny  ·  /pvp queue [mode] [kit]  ·  /pvp join <player>  ·  /pvp leave  ·  /pvp rematch"
+  duel:
+    usage: "<gray>/duel invite <player> [duel|sumo|naval|mounted|horse|waves] [kit|own] [stake] [bo3]  ·  /duel accept  ·  /duel deny  ·  /duel queue [mode] [kit]  ·  /duel join <player>  ·  /duel leave  ·  /duel rematch"
     only-duels: "<red>An invite is for a duel, sumo, a naval battle, mounted or horseback combat, or a mob run together. Teams and free for all come from the queue."
 
   naval:
@@ -116,15 +116,15 @@ arena:
     asked: "<gold><white><player></white> wants a rematch. <click:run_command:'/rematch'><gold>[Rematch]</gold></click>"
     starting: "<green>Rematch accepted. It starts as soon as a pit is free."
     none: "<gray>There is no recent fight to repeat."
-    expired: "<gray>The rematch offer has expired. <white>/pvp invite</white> asks again."
+    expired: "<gray>The rematch offer has expired. <white>/duel invite</white> asks again."
     gone: "<red>Somebody from that fight is gone, so there is no rematch."
     left: "<gray>Your opponent left, so there is no rematch."
 
   invite:
-    sent: "<green>Asked <white><player></white>. They have a minute to answer. <click:run_command:'/pvp cancel <id>'><red>[Cancel]</red></click>"
-    sent-across: "<green>Asked <white><player></white> on survival. If they say yes, they are brought here. <click:run_command:'/pvp cancel <id>'><red>[Cancel]</red></click>"
-    received: "<gold><white><player></white> asks you to a <white><mode></white> with <white><kit></white>, best of <white><rounds></white>, stake <white><stake></white>. <click:run_command:'/pvp accept <id>'><green>[Accept]</green></click> <click:run_command:'/pvp deny <id>'><red>[Decline]</red></click>"
-    received-waves: "<gold><white><player></white> asks you to fight mob waves together with <white><kit></white>. <click:run_command:'/pvp accept <id>'><green>[Accept]</green></click> <click:run_command:'/pvp deny <id>'><red>[Decline]</red></click>"
+    sent: "<green>Asked <white><player></white>. They have a minute to answer. <click:run_command:'/duel cancel <id>'><red>[Cancel]</red></click>"
+    sent-across: "<green>Asked <white><player></white> on survival. If they say yes, they are brought here. <click:run_command:'/duel cancel <id>'><red>[Cancel]</red></click>"
+    received: "<gold><white><player></white> asks you to a <white><mode></white> with <white><kit></white>, best of <white><rounds></white>, stake <white><stake></white>. <click:run_command:'/duel accept <id>'><green>[Accept]</green></click> <click:run_command:'/duel deny <id>'><red>[Decline]</red></click>"
+    received-waves: "<gold><white><player></white> asks you to fight mob waves together with <white><kit></white>. <click:run_command:'/duel accept <id>'><green>[Accept]</green></click> <click:run_command:'/duel deny <id>'><red>[Decline]</red></click>"
     accepted: "<green><white><player></white> said yes. The fight starts as soon as a pit is free."
     accepted-across: "<green><white><player></white> said yes and is on the way from survival."
     coming: "<green><white><player></white> is being brought over from survival. The fight starts when they are here."
@@ -139,7 +139,7 @@ arena:
     already: "<gray>You already said yes to that one. The fight starts as soon as a pit is free."
     pit-wait: "<yellow>Every pit is in use right now. Your fight is next and starts the moment one is free."
     none: "<gray>Nobody has asked you to a fight."
-    which: "<yellow>More than one invite is open. Click the one you mean, or type /pvp accept <id>."
+    which: "<yellow>More than one invite is open. Click the one you mean, or type /duel accept <id>."
     refuse:
       self: "<red>You cannot fight yourself."
       unknown: "<red>Nobody called <white><player></white> is online, here or on survival."

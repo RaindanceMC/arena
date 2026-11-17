@@ -50,7 +50,7 @@ public final class RematchService implements IArenaService {
         }
     }
 
-    /** {@code /pvp rematch}, and the button. */
+    /** {@code /duel rematch}, and the button. */
     public void ask(Player player) {
         UUID id = player.getUniqueId();
         Rematches.Answer answer = book.ask(id, clock.getAsLong());

@@ -26,8 +26,9 @@ public final class ArenaCommands {
                                 "admin sethub [world x y z yaw pitch]", "admin pit <name> floor|spawn|clearspawns|remove",
                                 "admin kit save|remove <id>", "admin npc place <role>|remove", "admin board place|remove",
                                 "admin info"),
-                ModuleCommand.of("pvp", "Ask somebody to a fight, answer, or wait in the queue",
-                                new de.raindancer.modules.arena.command.PvpCommand(ArenaCommands::require))
+                ModuleCommand.of("duel", "Ask somebody to a fight, answer, or wait in the queue",
+                                new de.raindancer.modules.arena.command.DuelCommand(ArenaCommands::require))
+                        .aliased("pvp")
                         .taking("invite <player> [mode] [kit] [stake]", "accept [id]", "deny [id]", "cancel [id]",
                                 "queue [mode] [kit]", "leave"),
                 ModuleCommand.of("rematch", "Fight your last fight again once everybody in it asks",

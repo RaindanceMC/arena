@@ -16,8 +16,17 @@ class ArenaCommandsTest {
     void declaringNeedsNothingLive() {
         List<ModuleCommand> declared = ArenaCommands.declared();
 
-        assertThat(declared).extracting(ModuleCommand::name).containsExactly("arena", "pvp", "rematch", "balance", "pay");
+        assertThat(declared).extracting(ModuleCommand::name).containsExactly("arena", "duel", "rematch", "balance", "pay");
         assertThat(declared.getFirst().options()).contains("leave", "hub");
+    }
+
+    @Test
+    @DisplayName("duels are /duel; /pvp stays only an alias here, as no Conflict plugin runs on this server")
+    void duelWithPvpAsAlias() {
+        ModuleCommand duel = ArenaCommands.declared().stream().filter(c -> c.name().equals("duel")).findFirst().orElseThrow();
+
+        assertThat(duel.aliases()).containsExactly("pvp");
+        assertThat(ArenaCommands.declared()).extracting(ModuleCommand::name).doesNotContain("pvp");
     }
 
     @Test
