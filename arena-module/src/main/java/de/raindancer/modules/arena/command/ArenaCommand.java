@@ -152,8 +152,9 @@ public final class ArenaCommand implements IArenaCommand {
                     live.boards().place(admin.getLocation());
                     live.messages().send(admin, "arena.admin.board-placed");
                 } else if (action.equals("remove")) {
-                    live.messages().send(admin, live.boards().removeNearest(admin) ? "arena.admin.board-removed"
-                            : "arena.admin.board-none");
+                    if (!live.boards().removeNearest(admin)) {
+                        live.messages().send(admin, "arena.admin.board-none");
+                    }
                 } else {
                     live.messages().send(admin, "arena.admin.board-usage");
                 }
@@ -275,9 +276,9 @@ public final class ArenaCommand implements IArenaCommand {
             return;
         }
         if (what.equals("remove")) {
-            live.npcs().removeNearest(player).ifPresentOrElse(
-                    role -> live.messages().send(player, "arena.admin.npc-removed", "role", role.title()),
-                    () -> live.messages().send(player, "arena.admin.npc-none"));
+            if (live.npcs().removeNearest(player).isEmpty()) {
+                live.messages().send(player, "arena.admin.npc-none");
+            }
             return;
         }
         java.util.Optional<de.raindancer.modules.arena.model.NpcRole> role = args.length > 2
@@ -287,7 +288,6 @@ public final class ArenaCommand implements IArenaCommand {
             return;
         }
         live.npcs().place(player, role.get());
-        live.messages().send(player, "arena.admin.npc-placed", "role", role.get().title());
     }
 
     private void pit(ArenaServices live, CommandSender sender, String[] args) {

@@ -47,7 +47,6 @@ public final class ArenaMenu extends Menu implements IArenaScreen {
         if (queued) {
             toolbar(2, Icons.of(Material.BARRIER, "<red>Leave the queue", "<gray>Stop waiting for a fight."), click -> {
                 services.queue().leave(viewer.getUniqueId());
-                services.messages().send(viewer, "arena.queue.left");
                 refresh();
             });
         }

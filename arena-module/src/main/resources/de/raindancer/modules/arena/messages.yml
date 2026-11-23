@@ -178,12 +178,10 @@ arena:
     drained: "<green>Pit <white><pit></white> is dry again, every block as it was."
     pit-busy: "<red>Pit <white><pit></white> is in use: a fight, or water still in it."
     board-placed: "<green>The leaderboard floats here now. It fills within half a minute."
-    board-removed: "<gray>The leaderboard nearest to you is gone."
     board-none: "<red>No leaderboard within five blocks."
     board-usage: "<gray>/arena admin board place  ·  /arena admin board remove"
     npc-usage: "<gray>/arena admin npc place <lanista|beastmaster|armorer|herald|gatekeeper|watcher> [world x y z yaw]  ·  /arena admin npc remove"
     npc-placed: "<green>The <white><role></white> stands where you stand."
-    npc-removed: "<green>The <white><role></white> is gone."
     npc-none: "<red>No gladiator within five blocks."
     info:
       head: "<gold>Arena</gold><gray>: <white><worlds></white> world(s), <white><pits></white> pit(s), hub in <white><hub></white>"
